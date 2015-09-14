@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skm-qI-3eJ" customClass="CNLoadingButton">
+                                <rect key="frame" x="233" y="70" width="135" height="34"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="Rt6-VA-EXX"/>
+                                </constraints>
+                                <state key="normal" title="左菊花">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSC-5u-LrB" customClass="CNLoadingButton">
+                                <rect key="frame" x="233" y="141" width="135" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="6Pj-uN-7SC"/>
+                                </constraints>
+                                <state key="normal" title="右菊花">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSe-FK-xOs" customClass="CNLoadingButton">
+                                <rect key="frame" x="233" y="200" width="135" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="aC3-mJ-frE"/>
+                                </constraints>
+                                <state key="normal" title="中菊花">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iSC-5u-LrB" firstAttribute="top" secondItem="skm-qI-3eJ" secondAttribute="bottom" constant="37" id="1ZK-7r-k2M"/>
+                            <constraint firstItem="cSe-FK-xOs" firstAttribute="top" secondItem="iSC-5u-LrB" secondAttribute="bottom" constant="29" id="5xd-c4-3DX"/>
+                            <constraint firstItem="skm-qI-3eJ" firstAttribute="leading" secondItem="cSe-FK-xOs" secondAttribute="leading" id="FFk-FX-5Ya"/>
+                            <constraint firstAttribute="centerX" secondItem="skm-qI-3eJ" secondAttribute="centerX" id="Gd4-nn-xze"/>
+                            <constraint firstItem="skm-qI-3eJ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="50" id="VhC-qE-Wjw"/>
+                            <constraint firstItem="iSC-5u-LrB" firstAttribute="leading" secondItem="skm-qI-3eJ" secondAttribute="leading" id="ngo-3I-aRQ"/>
+                            <constraint firstItem="iSC-5u-LrB" firstAttribute="top" secondItem="skm-qI-3eJ" secondAttribute="bottom" constant="37" id="sUQ-6g-xAn"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
