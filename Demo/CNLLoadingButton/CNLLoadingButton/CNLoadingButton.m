@@ -7,7 +7,7 @@
 //
 
 #import "CNLoadingButton.h"
-#import <ViewUtils.h>
+#import "ViewUtils.h"
 
 const CGFloat kSpaceWidth = 5.0;
 

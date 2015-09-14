@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "7.0"
   s.ios.deployment_target = "7.0"
   s.source       = { :git => "https://github.com/awaylyr/CNLLoadingButton.git", :tag => s.version}
-  s.source_files  = 'Demo/CNLLoadingButton/CNLLoadingButton'
+  s.source_files  = 'CNLLoadingButton'
   s.dependency 'ViewUtils'
   s.requires_arc = true
 end
