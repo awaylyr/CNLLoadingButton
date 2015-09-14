@@ -26,6 +26,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="leftLoadingButtonMethod:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fGX-Tv-zYf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSC-5u-LrB" customClass="CNLoadingButton">
                                 <rect key="frame" x="233" y="141" width="135" height="30"/>
@@ -37,6 +40,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="rightLoadingButtonMethod:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0Mf-nB-fa5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSe-FK-xOs" customClass="CNLoadingButton">
                                 <rect key="frame" x="233" y="200" width="135" height="30"/>
@@ -48,6 +54,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="centerLoadingButtonMethod:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WNA-TJ-Pcd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -61,6 +70,11 @@
                             <constraint firstItem="iSC-5u-LrB" firstAttribute="top" secondItem="skm-qI-3eJ" secondAttribute="bottom" constant="37" id="sUQ-6g-xAn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="centerLoadingButton" destination="cSe-FK-xOs" id="N9R-Ji-Dde"/>
+                        <outlet property="leftLoadingButton" destination="skm-qI-3eJ" id="4YS-dd-8Se"/>
+                        <outlet property="rightLoadingButton" destination="iSC-5u-LrB" id="yqs-PK-oAS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

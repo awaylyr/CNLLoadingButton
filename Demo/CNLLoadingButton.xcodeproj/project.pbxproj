@@ -15,6 +15,7 @@
 		468CB9BE1BA712A6009CC90F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 468CB9BD1BA712A6009CC90F /* Images.xcassets */; };
 		468CB9C11BA712A6009CC90F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 468CB9BF1BA712A6009CC90F /* LaunchScreen.xib */; };
 		468CB9CD1BA712A6009CC90F /* CNLLoadingButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 468CB9CC1BA712A6009CC90F /* CNLLoadingButtonTests.m */; };
+		468CB9D91BA71BEA009CC90F /* CNLoadingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 468CB9D81BA71BEA009CC90F /* CNLoadingButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		468CB9C61BA712A6009CC90F /* CNLLoadingButtonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CNLLoadingButtonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		468CB9CB1BA712A6009CC90F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		468CB9CC1BA712A6009CC90F /* CNLLoadingButtonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CNLLoadingButtonTests.m; sourceTree = "<group>"; };
+		468CB9D71BA71BEA009CC90F /* CNLoadingButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNLoadingButton.h; sourceTree = "<group>"; };
+		468CB9D81BA71BEA009CC90F /* CNLoadingButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNLoadingButton.m; sourceTree = "<group>"; };
 		8ECB8A842C2F8CFE8179A49B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +91,7 @@
 		468CB9AF1BA712A6009CC90F /* CNLLoadingButton */ = {
 			isa = PBXGroup;
 			children = (
+				468CB9D61BA71BEA009CC90F /* CNLLoadingButton */,
 				468CB9B41BA712A6009CC90F /* AppDelegate.h */,
 				468CB9B51BA712A6009CC90F /* AppDelegate.m */,
 				468CB9B71BA712A6009CC90F /* ViewController.h */,
@@ -124,6 +128,15 @@
 				468CB9CB1BA712A6009CC90F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		468CB9D61BA71BEA009CC90F /* CNLLoadingButton */ = {
+			isa = PBXGroup;
+			children = (
+				468CB9D71BA71BEA009CC90F /* CNLoadingButton.h */,
+				468CB9D81BA71BEA009CC90F /* CNLoadingButton.m */,
+			);
+			path = CNLLoadingButton;
 			sourceTree = "<group>";
 		};
 		68EA46209CC6463429FCA592 /* Pods */ = {
@@ -281,6 +294,7 @@
 				468CB9B91BA712A6009CC90F /* ViewController.m in Sources */,
 				468CB9B61BA712A6009CC90F /* AppDelegate.m in Sources */,
 				468CB9B31BA712A6009CC90F /* main.m in Sources */,
+				468CB9D91BA71BEA009CC90F /* CNLoadingButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
