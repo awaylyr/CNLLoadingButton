@@ -1,2 +1,3 @@
 #Podfile
 pod 'ViewUtils'                             # 更简便的调用 UIView 的一些方法
+pod 'CNLLoadingButton'		#我试一下能不能用，哈哈，处女pod

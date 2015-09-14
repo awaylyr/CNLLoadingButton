@@ -1,10 +1,14 @@
 PODS:
+  - CNLLoadingButton (1.0.1):
+    - ViewUtils
   - ViewUtils (1.1.2)
 
 DEPENDENCIES:
+  - CNLLoadingButton
   - ViewUtils
 
 SPEC CHECKSUMS:
+  CNLLoadingButton: 761001bbfc279901994bf043959b09df595cbb87
   ViewUtils: 68e42c708a4b3912e39691cef5080282dc5013fb
 
 COCOAPODS: 0.38.2
