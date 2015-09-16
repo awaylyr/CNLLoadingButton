@@ -1,23 +1,23 @@
 //
-//  CNLoadingButton.m
-//  CNLoadingButtonDemo
+//  CNLLoadingButton.m
+//  CNLLoadingButtonDemo
 //
 //  Created by 林雅茹 on 15/9/11.
 //  Copyright (c) 2015年 linyr. All rights reserved.
 //
 
-#import "CNLoadingButton.h"
+#import "CNLLoadingButton.h"
 #import "ViewUtils.h"
 
 const CGFloat kSpaceWidth = 5.0;
 
-@interface CNLoadingButton ()
+@interface CNLLoadingButton ()
 // 菊花默认gray样式，要提供给外部创建？？？？？？？？？？？
 @property (nonatomic,strong)UIActivityIndicatorView *activityIndicatorView;
 // 是否要通过修改isLoading来修改button状态？？？？？？？？？
 @property(assign,nonatomic)BOOL isLoading;
 @end
-@implementation CNLoadingButton
+@implementation CNLLoadingButton
 
 - (void)dealloc
 {
@@ -55,7 +55,7 @@ const CGFloat kSpaceWidth = 5.0;
 
 - (void)personalizationDefaultInit
 {
-    self.loadingButtonAlignment = CNLoadingButtonAlignmentRight;
+    self.loadingButtonAlignment = CNLLoadingButtonAlignmentRight;
     self.loadingButtonEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 5);
 }
 
@@ -66,15 +66,15 @@ const CGFloat kSpaceWidth = 5.0;
     if (self.isLoading && [self.titleLabel.text isEqualToString:[self titleForState:UIControlStateDisabled]]) {
         [self.activityIndicatorView startAnimating];
         switch (self.loadingButtonAlignment) {
-            case CNLoadingButtonAlignmentLeft: {
+            case CNLLoadingButtonAlignmentLeft: {
                 [self layoutSubviewsWhenLoadingButtonAlignmentLeft];
             }
                 break;
-            case CNLoadingButtonAlignmentRight: {
+            case CNLLoadingButtonAlignmentRight: {
                 [self layoutSubviewsWhenLoadingButtonAlignmentRight];
             }
                 break;
-            case CNLoadingButtonAlignmentCenter: {
+            case CNLLoadingButtonAlignmentCenter: {
                 [self layoutSubviewsWhenLoadingButtonAlignmentCenter];
             }
                 break;
@@ -168,10 +168,10 @@ const CGFloat kSpaceWidth = 5.0;
 
 - (void)startLoadingWithLoadingText:(NSString *)loadingText
 {
-    if (loadingText.length != 0 && self.loadingButtonAlignment != CNLoadingButtonAlignmentCenter) {
+    if (loadingText.length != 0 && self.loadingButtonAlignment != CNLLoadingButtonAlignmentCenter) {
          [self setTitle:loadingText forState:UIControlStateDisabled];
     } else {
-        if (self.loadingButtonAlignment == CNLoadingButtonAlignmentCenter) {
+        if (self.loadingButtonAlignment == CNLLoadingButtonAlignmentCenter) {
             [self setTitle:@" " forState:UIControlStateDisabled];
         } else {
             [self setTitle:[self titleForState:UIControlStateNormal] forState:UIControlStateDisabled];
@@ -223,9 +223,9 @@ const CGFloat kSpaceWidth = 5.0;
     return _activityIndicatorView;
 }
 
-- (void)setLoadingButtonAlignment:(CNLoadingButtonAlignment)loadingButtonAlignment
+- (void)setLoadingButtonAlignment:(CNLLoadingButtonAlignment)loadingButtonAlignment
 {
-//    if (loadingButtonAlignment == CNLoadingButtonAlignmentCenter) {
+//    if (loadingButtonAlignment == CNLLoadingButtonAlignmentCenter) {
 //        self.isHiddenTitleWhenLoading = YES;
 //        self.isHiddenImageWhenLoading = YES;
 //    }
