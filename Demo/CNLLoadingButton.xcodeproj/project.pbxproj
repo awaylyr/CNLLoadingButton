@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0EA81B45D121F50D67802D8A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 196511F683440F38C40182F3 /* libPods.a */; };
+		23AE64E21BA94AD600685504 /* CNLLoadingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AE64E11BA94AD600685504 /* CNLLoadingButton.m */; };
 		468CB9B31BA712A6009CC90F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 468CB9B21BA712A6009CC90F /* main.m */; };
 		468CB9B61BA712A6009CC90F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 468CB9B51BA712A6009CC90F /* AppDelegate.m */; };
 		468CB9B91BA712A6009CC90F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 468CB9B81BA712A6009CC90F /* ViewController.m */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		024005049597946B5D09F9FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		196511F683440F38C40182F3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		23AE64E01BA94AD600685504 /* CNLLoadingButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CNLLoadingButton.h; path = ../../CNLLoadingButton/CNLLoadingButton.h; sourceTree = "<group>"; };
+		23AE64E11BA94AD600685504 /* CNLLoadingButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CNLLoadingButton.m; path = ../../CNLLoadingButton/CNLLoadingButton.m; sourceTree = "<group>"; };
 		468CB9AD1BA712A6009CC90F /* CNLLoadingButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CNLLoadingButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		468CB9B11BA712A6009CC90F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		468CB9B21BA712A6009CC90F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -65,6 +68,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23AE64D61BA948E400685504 /* CNLLoadingButton */ = {
+			isa = PBXGroup;
+			children = (
+				23AE64E01BA94AD600685504 /* CNLLoadingButton.h */,
+				23AE64E11BA94AD600685504 /* CNLLoadingButton.m */,
+			);
+			name = CNLLoadingButton;
+			sourceTree = "<group>";
+		};
 		468CB9A41BA712A6009CC90F = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +100,7 @@
 		468CB9AF1BA712A6009CC90F /* CNLLoadingButton */ = {
 			isa = PBXGroup;
 			children = (
+				23AE64D61BA948E400685504 /* CNLLoadingButton */,
 				468CB9B41BA712A6009CC90F /* AppDelegate.h */,
 				468CB9B51BA712A6009CC90F /* AppDelegate.m */,
 				468CB9B71BA712A6009CC90F /* ViewController.h */,
@@ -278,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23AE64E21BA94AD600685504 /* CNLLoadingButton.m in Sources */,
 				468CB9B91BA712A6009CC90F /* ViewController.m in Sources */,
 				468CB9B61BA712A6009CC90F /* AppDelegate.m in Sources */,
 				468CB9B31BA712A6009CC90F /* main.m in Sources */,
