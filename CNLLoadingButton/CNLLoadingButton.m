@@ -168,17 +168,18 @@ const CGFloat kSpaceWidth = 5.0;
 
 - (void)startLoadingWithLoadingText:(NSString *)loadingText
 {
-    if (loadingText.length != 0 && self.loadingButtonAlignment != CNLLoadingButtonAlignmentCenter) {
-         [self setTitle:loadingText forState:UIControlStateDisabled];
-    } else {
-        if (self.loadingButtonAlignment == CNLLoadingButtonAlignmentCenter) {
-            [self setTitle:@" " forState:UIControlStateDisabled];
+    if (!self.isLoading) {
+        if (loadingText.length != 0 && self.loadingButtonAlignment != CNLLoadingButtonAlignmentCenter) {
+            [self setTitle:loadingText forState:UIControlStateDisabled];
         } else {
-            [self setTitle:[self titleForState:UIControlStateNormal] forState:UIControlStateDisabled];
+            if (self.loadingButtonAlignment == CNLLoadingButtonAlignmentCenter) {
+                [self setTitle:@" " forState:UIControlStateDisabled];
+            } else {
+                [self setTitle:[self titleForState:UIControlStateNormal] forState:UIControlStateDisabled];
+            }
         }
+        self.isLoading = YES;
     }
-   
-    self.isLoading = YES;
 }
 
 - (void)updateLoadingText:(NSString *)loadingText
@@ -193,10 +194,12 @@ const CGFloat kSpaceWidth = 5.0;
 
 - (void)endLoadingWithNormalText:(NSString *)normalText
 {
-    if (normalText.length != 0) {
-        [self setTitle:normalText forState:UIControlStateNormal];
+    if (self.isLoading) {
+        if (normalText.length != 0) {
+            [self setTitle:normalText forState:UIControlStateNormal];
+        }
+        self.isLoading = NO;
     }
-    self.isLoading = NO;
 }
 
 #pragma mark - kvo
