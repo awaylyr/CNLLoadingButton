@@ -102,8 +102,10 @@ const CGFloat kSpaceWidth = 5.0;
     activityIndicatorViewX = activityIndicatorViewX - activityIndicatorViewFrame.size.width;
     if ( activityIndicatorViewX - self.loadingButtonEdgeInsets.left < 0 ) {
         if (self.isHiddenActivityIndicatorWhenLoading) {
-            self.titleLabel.left = self.loadingButtonEdgeInsets.left;
-            self.titleLabel.width = self.width - self.loadingButtonEdgeInsets.left - self.loadingButtonEdgeInsets.right;
+            CGFloat maxTitleWidth = self.width - self.loadingButtonEdgeInsets.left - self.loadingButtonEdgeInsets.right;
+            CGFloat realTitleWidth = [self.titleLabel sizeThatFits:CGSizeMake(maxTitleWidth, CGFLOAT_MAX)].width;
+            self.titleLabel.width = maxTitleWidth < realTitleWidth ? maxTitleWidth : realTitleWidth;
+            self.titleLabel.left = (self.width - self.titleLabel.width) / 2.0;
             [self.activityIndicatorView stopAnimating];
         } else {
             activityIndicatorViewFrame.origin.x = self.loadingButtonEdgeInsets.left ;
@@ -135,8 +137,10 @@ const CGFloat kSpaceWidth = 5.0;
     
     if ( activityIndicatorViewX + activityIndicatorViewFrame.size.width + self.loadingButtonEdgeInsets.right > self.width ) {
         if (self.isHiddenActivityIndicatorWhenLoading) {
-            self.titleLabel.left = self.loadingButtonEdgeInsets.left;
-            self.titleLabel.width = self.width - self.loadingButtonEdgeInsets.left - self.loadingButtonEdgeInsets.right;
+            CGFloat maxTitleWidth = self.width - self.loadingButtonEdgeInsets.left - self.loadingButtonEdgeInsets.right;
+            CGFloat realTitleWidth = [self.titleLabel sizeThatFits:CGSizeMake(maxTitleWidth, CGFLOAT_MAX)].width;
+            self.titleLabel.width = maxTitleWidth < realTitleWidth ? maxTitleWidth : realTitleWidth;
+            self.titleLabel.left = (self.width - self.titleLabel.width) / 2.0;
             [self.activityIndicatorView stopAnimating];
         } else {
             activityIndicatorViewFrame.origin.x = self.width - self.loadingButtonEdgeInsets.right - activityIndicatorViewFrame.size.width;
