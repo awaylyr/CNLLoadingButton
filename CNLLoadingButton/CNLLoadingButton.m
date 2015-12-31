@@ -12,19 +12,23 @@
 const CGFloat kSpaceWidth = 5.0;
 
 @interface CNLLoadingButton ()
-// 菊花默认gray样式，要提供给外部创建？？？？？？？？？？？
-@property (nonatomic,strong)UIActivityIndicatorView *activityIndicatorView;
-// 是否要通过修改isLoading来修改button状态？？？？？？？？？
-@property(assign,nonatomic)BOOL isLoading;
+
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicatorView;
+@property (assign, nonatomic) BOOL isLoading;
+
+@property (copy, nonatomic) NSString *loadingText;
+
 @end
+
+
 @implementation CNLLoadingButton
 
 - (void)dealloc
 {
-    [self removeObserver:self forKeyPath:@"isLoading"];
+    [self removeObserver:self forKeyPath:NSStringFromSelector(@selector(isLoading))];
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
         [self registerKVO];
@@ -32,7 +36,7 @@ const CGFloat kSpaceWidth = 5.0;
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
         self.clipsToBounds = YES;
@@ -50,7 +54,7 @@ const CGFloat kSpaceWidth = 5.0;
 
 - (void)registerKVO
 {
-    [self addObserver:self forKeyPath:@"isLoading" options:NSKeyValueObservingOptionNew context:NULL];
+    [self addObserver:self forKeyPath:NSStringFromSelector(@selector(isLoading)) options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (void)personalizationDefaultInit
@@ -63,7 +67,8 @@ const CGFloat kSpaceWidth = 5.0;
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    if (self.isLoading && [self.titleLabel.text isEqualToString:[self titleForState:UIControlStateDisabled]]) {
+    // 正在加载中，并且当前显示的是禁用状态下的提示语
+    if (self.isLoading && [self.titleLabel.text isEqualToString:self.loadingText]) {
         [self.activityIndicatorView startAnimating];
         switch (self.loadingButtonAlignment) {
             case CNLLoadingButtonAlignmentLeft: {
@@ -81,7 +86,7 @@ const CGFloat kSpaceWidth = 5.0;
             default:
                 break;
         }
-    } else if (!self.isLoading && [self.titleLabel.text isEqualToString:[self titleForState:UIControlStateNormal]]){
+    } else {
         [self setTitleEdgeInsets:UIEdgeInsetsZero];
         [self.activityIndicatorView stopAnimating];
     }
@@ -124,7 +129,7 @@ const CGFloat kSpaceWidth = 5.0;
 
 - (void)layoutSubviewsWhenLoadingButtonAlignmentRight
 {
-     CGRect activityIndicatorViewFrame = self.activityIndicatorView.frame;
+    CGRect activityIndicatorViewFrame = self.activityIndicatorView.frame;
     [self setTitleEdgeInsets:UIEdgeInsetsMake(0, -(activityIndicatorViewFrame.size.width + kSpaceWidth), 0, 0)];
     CGFloat activityIndicatorViewX = 0.0;
     if (!CGRectEqualToRect(self.titleLabel.frame, CGRectZero) && !CGRectEqualToRect(self.imageView.frame, CGRectZero)) {
@@ -167,21 +172,23 @@ const CGFloat kSpaceWidth = 5.0;
 #pragma mark - public method
 - (void)startLoading
 {
-    [self startLoadingWithLoadingText:@" "];
+    [self startLoadingWithLoadingText:nil];
 }
 
 - (void)startLoadingWithLoadingText:(NSString *)loadingText
 {
     if (!self.isLoading) {
         if (loadingText.length != 0 && self.loadingButtonAlignment != CNLLoadingButtonAlignmentCenter) {
-            [self setTitle:loadingText forState:UIControlStateDisabled];
+            self.loadingText = loadingText;
         } else {
             if (self.loadingButtonAlignment == CNLLoadingButtonAlignmentCenter) {
-                [self setTitle:@" " forState:UIControlStateDisabled];
+                self.loadingText = @" ";
             } else {
-                [self setTitle:[self titleForState:UIControlStateNormal] forState:UIControlStateDisabled];
+                // 默认显示正常状态下的提示语
+                self.loadingText = [self titleForState:UIControlStateNormal];
             }
         }
+        [self setTitle:self.loadingText forState:UIControlStateDisabled];
         self.isLoading = YES;
     }
 }
@@ -199,6 +206,7 @@ const CGFloat kSpaceWidth = 5.0;
 - (void)endLoadingWithNormalText:(NSString *)normalText
 {
     if (self.isLoading) {
+        // 停止loading，回到loading前的可用状态
         if (normalText.length != 0) {
             [self setTitle:normalText forState:UIControlStateNormal];
         }
@@ -209,10 +217,11 @@ const CGFloat kSpaceWidth = 5.0;
 #pragma mark - kvo
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if ([keyPath isEqualToString:@"isLoading"]) {
+    if ([keyPath isEqualToString:NSStringFromSelector(@selector(isLoading))]) {
         if ( [(NSNumber *)change[NSKeyValueChangeNewKey] boolValue]) {
             self.enabled = NO;
         } else {
+            // 停止加载回到loading前的状态，loading前是可用的
             self.enabled = YES;
         }
     }
@@ -232,10 +241,10 @@ const CGFloat kSpaceWidth = 5.0;
 
 - (void)setLoadingButtonAlignment:(CNLLoadingButtonAlignment)loadingButtonAlignment
 {
-//    if (loadingButtonAlignment == CNLLoadingButtonAlignmentCenter) {
-//        self.isHiddenTitleWhenLoading = YES;
-//        self.isHiddenImageWhenLoading = YES;
-//    }
+    //    if (loadingButtonAlignment == CNLLoadingButtonAlignmentCenter) {
+    //        self.isHiddenTitleWhenLoading = YES;
+    //        self.isHiddenImageWhenLoading = YES;
+    //    }
     _loadingButtonAlignment = loadingButtonAlignment;
 }
 
@@ -244,4 +253,5 @@ const CGFloat kSpaceWidth = 5.0;
     _activityIndicatorViewStyle = activityIndicatorViewStyle;
     self.activityIndicatorView.activityIndicatorViewStyle = _activityIndicatorViewStyle;
 }
+
 @end

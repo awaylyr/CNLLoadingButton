@@ -15,7 +15,6 @@ typedef NS_ENUM(NSInteger, CNLLoadingButtonAlignment) {
 
 @interface CNLLoadingButton : UIButton
 
-// 
 - (void)startLoading;
 - (void)startLoadingWithLoadingText:(NSString *)loadingText;
 - (void)updateLoadingText:(NSString *)loadingText;
