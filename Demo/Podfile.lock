@@ -4,15 +4,10 @@ PODS:
   - ViewUtils (1.1.2)
 
 DEPENDENCIES:
-  - CNLLoadingButton (from `../`)
-  - ViewUtils
-
-EXTERNAL SOURCES:
-  CNLLoadingButton:
-    :path: "../"
+  - CNLLoadingButton
 
 SPEC CHECKSUMS:
-  CNLLoadingButton: 09eef7fbd804aa1730cf40ce290876e89936eba7
+  CNLLoadingButton: 23eb32c6a1a92ec438d6e6eb3f6ef30bb460cfa0
   ViewUtils: 68e42c708a4b3912e39691cef5080282dc5013fb
 
 COCOAPODS: 0.39.0

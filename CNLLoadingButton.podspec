@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/awaylyr/CNLLoadingButton.git", :tag => s.version}
 
   s.source_files  = 'CNLLoadingButton/*.{h,m}'
-  s.public_header_files = 'Pod/*.h'
+  s.public_header_files = 'CNLLoadingButton/*.h'
 
   s.dependency 'ViewUtils'
   
