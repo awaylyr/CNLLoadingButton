@@ -23,15 +23,9 @@ const CGFloat kSpaceWidth = 5.0;
 
 @implementation CNLLoadingButton
 
-- (void)dealloc
-{
-    [self removeObserver:self forKeyPath:NSStringFromSelector(@selector(isLoading))];
-}
-
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
-        [self registerKVO];
     }
     return self;
 }
@@ -40,7 +34,6 @@ const CGFloat kSpaceWidth = 5.0;
 {
     if (self = [super initWithFrame:frame]) {
         self.clipsToBounds = YES;
-        [self registerKVO];
         [self personalizationDefaultInit];
     }
     return self;
@@ -50,11 +43,6 @@ const CGFloat kSpaceWidth = 5.0;
 {
     self.clipsToBounds = YES;
     [self personalizationDefaultInit];
-}
-
-- (void)registerKVO
-{
-    [self addObserver:self forKeyPath:NSStringFromSelector(@selector(isLoading)) options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (void)personalizationDefaultInit
@@ -190,6 +178,8 @@ const CGFloat kSpaceWidth = 5.0;
         }
         [self setTitle:self.loadingText forState:UIControlStateDisabled];
         self.isLoading = YES;
+        self.enabled = NO;
+
     }
 }
 
@@ -211,19 +201,8 @@ const CGFloat kSpaceWidth = 5.0;
             [self setTitle:normalText forState:UIControlStateNormal];
         }
         self.isLoading = NO;
-    }
-}
-
-#pragma mark - kvo
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if ([keyPath isEqualToString:NSStringFromSelector(@selector(isLoading))]) {
-        if ( [(NSNumber *)change[NSKeyValueChangeNewKey] boolValue]) {
-            self.enabled = NO;
-        } else {
-            // 停止加载回到loading前的状态，loading前是可用的
-            self.enabled = YES;
-        }
+        // 停止加载回到loading前的状态，loading前是可用的
+        self.enabled = YES;
     }
 }
 
