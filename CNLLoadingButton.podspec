@@ -1,7 +1,7 @@
 #CNLLoadingButton.podspec
 Pod::Spec.new do |s|
   s.name         = "CNLLoadingButton"
-  s.version      = "1.0.4"
+  s.version      = "1.0.5"
   s.summary      = "a button with activity indicator."
 
   s.homepage     = "https://github.com/awaylyr/CNLLoadingButton"
